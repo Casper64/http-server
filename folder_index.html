@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title}</title>
+
+<style>
+body, html {
+    margin: 0;
+}
+
+body {
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    padding: 50px;
+    background-color: #ece9e9;
+    font: 13px "Helvetica Neue", "Lucida Grande", "Arial";
+}
+
+p, h2 {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-auto-rows: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 250px));
+    gap: 1em;
+}
+
+.container .file, .container .folder {
+    display: grid;
+    grid-template-columns: 30px max-content;
+    align-items: center;
+}
+
+.container a {
+    background-repeat: no-repeat;
+    background-position: 8px 5px;
+}
+.container a.folder {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAWtQTFRFAAAA/PPQ9Nhc2q402qQ12qs2/PTX2pg12p81+/LM89NE9dto2q82+/fp2rM22qY39d6U+/bo2qo2/frx/vz32q812qs12qE279SU8c4w9NZP+/LK//367s9y7s925cp0/vzw9t92//342po2/vz25s1579B6+OSO2bQ0/v799NyT8tE79dld8Msm+OrC/vzx79KA2IYs7s6I9d6R4cJe9+OF/PLI/fry79OF/v30//328tWB89RJ8c9p8c0u9eCf//7+9txs6sts5Mdr+++5+u2z/vrv+/fq6cFz8dBs8tA57cpq+OaU9uGs27Y8//799NdX/PbY9uB89unJ//z14sNf+emh+emk+vDc+uys9+OL8dJy89NH+eic8tN5+OaV+OWR9N2n9dtl9t529+KF9+GB9Nue9NdU8tR/9t5y89qW9dpj89iO89eG/vvu2pQ12Y4z/vzy2Ict/vvv48dr/vzz4sNg///+2Igty3PqwQAAAAF0Uk5TAEDm2GYAAACtSURBVBjTY2AgA2iYlJWVhfohBPg0yx38y92dS0pKVOVBAqIi6sb2vsWWpfrFeTI8QAEhYQEta28nCwM1OVleZqCAmKCEkUdwYWmhQnFeOStQgL9cySqkNNDHVJGbiY0FKCCuYuYSGRsV5KgjxcXIARRQNncNj09JTgqw0ZbkZAcK5LuFJaRmZqfHeNnpSucDBQoiEtOycnIz4qI9bfUKQA6pKKqAgqIKQyK8BgAZ5yfODmnHrQAAAABJRU5ErkJggg==);
+}
+.container a.file {
+    background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC4SURBVCjPdZFbDsIgEEWnrsMm7oGGfZrohxvU+Iq1TyjU60Bf1pac4Yc5YS4ZAtGWBMk/drQBOVwJlZrWYkLhsB8UV9K0BUrPGy9cWbng2CtEEUmLGppPjRwpbixUKHBiZRS0p+ZGhvs4irNEvWD8heHpbsyDXznPhYFOyTjJc13olIqzZCHBouE0FRMUjA+s1gTjaRgVFpqRwC8mfoXPPEVPS7LbRaJL2y7bOifRCTEli3U7BMWgLzKlW/CuebZPAAAAAElFTkSuQmCC);
+}
+.container span {
+    text-indent: 28px;
+    text-overflow: ellipsis;
+    width: 250px;
+    overflow: hidden;
+    line-height: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+    border-radius: 5px;
+    white-space: no-wrap;
+    border: 1px solid transparent;
+}
+a:hover {
+    background-color: rgba(255,255,255,0.65);
+    border-color: #ececec;
+    color: #303030;
+}
+
+</style>
+</head>
+<body>
+    
+<h2>~${current_dir}</h2>
+<div class="container">
+    <a href="${link_up}" class="folder">
+        <span>..</span>
+    </a>
+    @for folder in folders
+        <a href="${current_dir}${folder}" class="folder">
+            <span>${folder}</span>
+        </a>
+    @endfor
+    @for file in files
+        <a href="${current_dir}${file}" class="file">
+            <span>${file}</span>
+        </a>
+    @endfor
+</div>
+
+
+</body>
+</html>
