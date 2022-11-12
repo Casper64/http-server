@@ -1,6 +1,6 @@
 # HTTP Server
 
-Start a http server to browse files in a directory
+Start an http server to browse files in a directory
 
 This program was made with [v](https://vlang.io). V is a relatively new language and I love it for its simplicity and 
 speed.
