@@ -10,11 +10,6 @@ import flag
 
 const (
 	folder_index_page = 'folder_index.html'
-
-	headers_close     = http.new_custom_header_from_map({
-		'Server':                           'V'
-		http.CommonHeader.connection.str(): 'close'
-	}) or { panic('should never fail') }
 )
 
 struct Resource {
@@ -105,7 +100,7 @@ pub fn (mut ctx Context) send_response(mimetype string, res string) bool {
 	})
 	// build response
 	mut resp := http.Response{
-		header: header.join(headers_close)
+		header: header.join(vweb.headers_close)
 		body: res
 	}
 
