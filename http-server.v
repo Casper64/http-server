@@ -1,4 +1,3 @@
-// TODO: decrease dependencies ...
 import os
 import time
 import io

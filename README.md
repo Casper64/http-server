@@ -13,7 +13,7 @@ Folder index page
 ![screenshot of index page](index-example.png)
 
 ## Usage
-```text
+```
 http-server v1.0.1
 -----------------------------------------------
 Usage: http-server [options] [ARGS]
@@ -27,10 +27,16 @@ Options:
   --version                 output version information and exit
 ```
 ### Locally
-```v run http-server.v```
+```
+v run http-server.v
+```
 
 ### Build to exe
-```v http-server.v```
+```
+v http-server.v
+```
 or
-```v -prod http-server.v```
+```
+v -prod http-server.v
+```
 
